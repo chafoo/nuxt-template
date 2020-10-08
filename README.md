@@ -1,5 +1,7 @@
 # Nuxt ready to use template
 
+> International nuxt setup with common ui-component setup (tested)
+
 ## Build Setup
 
 ```bash
