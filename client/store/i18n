@@ -1,0 +1,22 @@
+import { GetterTree, MutationTree } from 'vuex'
+import { LanguageShort } from '~/utils/language.interface'
+
+export const state = () => ({
+  locale: LanguageShort.en
+})
+
+export type RootState = ReturnType<typeof state>
+
+export const mutations: MutationTree<RootState> = {
+  setLocale (state: any, locale: LanguageShort) {
+    if (LanguageShort[locale]) {
+      state.locale = locale
+    }
+  }
+}
+
+export const getters: GetterTree<RootState, RootState> = {
+  language: (state: any) => {
+    return state.locale
+  }
+}

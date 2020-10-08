@@ -1,0 +1,301 @@
+/*  Index
+ *
+ *  1 Structural mixins
+ *  2 Element themes
+ *  3 Font related
+ *
+*/
+
+// 1 Structural mixins
+$mobil:     320px;
+$phablet:   560px;
+$tablet:    768px;
+$laptop:    1024px;
+$desktop:   1440px;
+
+@mixin from-width($breakpoint: $laptop) {
+  @media (min-width: $breakpoint) {
+    @content
+  }
+};
+
+// Only values without spaces between
+// Example working padding: 16px;
+// Example failing padding: 16px 12px;
+@mixin res-prop($property, $mobile-value, $breakpoint-value, $breakpoint: $laptop) {
+  #{$property}: $mobile-value;
+
+  from-width($breakpoint) {
+    #{$property}: $breakpoint-value
+  }
+}
+
+@mixin grid-container($rows: 1, $columns: 12, $height: 100px, $grid-gap: 5px) {
+  display: grid;
+  min-height: $height;
+  grid-template-columns: repeat($columns, 1fr);
+  grid-template-rows: repeat($rows, 1fr);
+  grid-gap: $grid-gap;
+
+};
+
+@mixin grid-item($columnStart: 2, $columnEnd: 12, $rowStart: 1, $rowEnd:1) { // Default is also default behavior
+  grid-column-start: $columnStart;
+  grid-column-end: $columnEnd;
+  grid-row-start: $rowStart;
+  grid-row-end: $rowEnd;
+};
+
+@mixin grid-pattern-small-big-small(){
+  @include grid-container;
+
+  &__small-left {
+    @include grid-item(1,3);
+  }
+
+  &__big {
+    @include grid-item(3,9);
+  }
+
+  &__small-right {
+    @include grid-item(9,12);
+  }
+}
+
+@mixin main-frame {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @include from-width($phablet) {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
+  @include from-width($tablet) {
+    padding-left: 54px;
+    padding-right: 54px;
+  }
+
+  @include from-width($laptop) {
+    max-width: 1024px;
+    padding-left: 98px;
+    padding-right: 98px;
+    margin: auto;
+  }
+
+  @include from-width($desktop) {
+    max-width: 1440px;
+    padding-left: 306px;
+    padding-right: 306px;
+    margin: auto;
+  }
+}
+
+@mixin header-frame {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 72px;
+  padding: 16px;
+  background-color: white;
+
+  @include from-width($phablet) {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
+  @include from-width($tablet) {
+    padding-left: 54px;
+    padding-right: 54px;
+  }
+
+  @include from-width($laptop) {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+
+
+// 2 Element themes
+
+@mixin box-shaddow-default {
+  box-shadow: 0 0 15px 5px rgba(0,0,0,0.05);
+}
+
+@mixin button-default {
+  box-shadow: none;
+  background-color: $color-neutrals-10;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  display: inline-block;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $color-yellow-20;
+    @include box-shaddow-default;
+
+    transition: border-color 1s, box-shadow .5s;
+  }
+}
+
+@mixin underline-on-hover {
+  position: relative;
+  cursor: pointer;
+
+   &:after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background-color: $color-neutrals-80;
+      transition: width .5s ease-out;
+   }
+
+   &:hover {
+     &:after {
+       width: 100%;
+     }
+   }
+}
+
+@mixin box-l {
+  background-color: $color-neutrals-10;
+  padding: 24px 16px;
+  margin: 0 -16px;
+  border-radius: 0;
+
+  @include from-width($phablet) {
+    padding:32px 71px;
+    margin: 0;
+    border-radius: 12px;
+  }
+}
+
+@mixin modal-box-l {
+  background-color: $color-neutrals-10;
+  padding: 24px 16px;
+  border-radius: 12px;
+
+  @include from-width($phablet) {
+    padding:32px 71px;
+  }
+}
+
+@mixin modal-box-s {
+  background-color: $color-neutrals-10;
+  padding: 16px 24px;
+  border-radius: 12px;
+  width: 450px;
+}
+
+
+// 3 Font related
+// Doc: https://www.figma.com/file/rgyDww1EFe0P8zyvr43h8p/kitchen-stories-ui
+
+@mixin splash-headline {
+  font-family: $font-family__lyon;
+  font-weight: bold;
+  font-size: rem-calc(48);
+  line-height: rem-calc(60);
+  margin: 0 0 16px 0;
+
+  @include from-width($laptop) {
+    font-size: rem-calc(54);
+    line-height: rem-calc(67);
+  }
+}
+
+@mixin main-headline {
+  font-family: $font-family__lyon;
+  font-weight: bold;
+  font-size: rem-calc(36);
+  line-height: rem-calc(45);
+  margin: 0 0 16px 0;
+
+  @include from-width($laptop) {
+    font-size: rem-calc(40.5);
+    line-height: rem-calc(51);
+  }
+}
+
+@mixin sub-headline {
+  font-family: $font-family__lyon;
+  font-weight: bold;
+  font-size: rem-calc(24);
+  line-height: rem-calc(30);
+  margin: 0 0 16px 0;
+
+  @include from-width($laptop) {
+    font-size: rem-calc(27);
+    line-height: rem-calc(34);
+  }
+}
+
+@mixin small-headline {
+  font-family: $font-family__tt-commons;
+  font-weight: 500;
+  font-size: rem-calc(20);
+  line-height: rem-calc(25);
+  margin: 0 0 16px 0;
+
+  @include from-width($laptop) {
+    font-size: rem-calc(22.5);
+    line-height: rem-calc(28);
+  }
+}
+
+@mixin text-default {
+  font-family: $font-family__tt-commons;
+  font-size: rem-calc(16);
+  line-height: rem-calc(24);
+  font-weight: normal;
+  margin: 0 0 16px 0;
+
+  @include from-width($laptop) {
+    font-size: rem-calc(18);
+    line-height: rem-calc(27);
+  }
+}
+
+@mixin text-mini-caps {
+  font-family: $font-family__tt-commons;
+  font-size: rem-calc(16);
+  line-height: rem-calc(24);
+  letter-spacing: rem-calc(1);
+  font-variant: small-caps;
+  font-style: normal;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+
+  @include from-width($laptop) {
+    font-size: rem-calc(18);
+    line-height: rem-calc(27);
+  }
+}
+
+@mixin text-aside {
+  font-family: $font-family__tt-commons;
+  font-size: rem-calc(14);
+  line-height: rem-calc(17);
+  font-weight: normal;
+  margin: 0 0 8px 0;
+
+  @include from-width($laptop) {
+    font-size: rem-calc(15.75);
+    line-height: rem-calc(19);
+  }
+}
+
+
+
+
+
+
+
+

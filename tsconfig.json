@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": false,
+    "target": "es2018",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": [
+      "esnext",
+      "esnext.asynciterable",
+      "dom"
+    ],
+    "esModuleInterop": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "strict": true,
+    "noEmit": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./client/*"],
+      "~~/*": ["./*"],
+      "@/*": ["./client/*"],
+      "@@/*": ["./*"]
+    },
+    "types": [
+      "@types/node",
+      "@nuxt/types",
+      "@nuxtjs/axios",
+      "@nuxtjs/moment",
+      "nuxt-i18n",
+      "@types/jest",
+      "@nuxtjs/sentry",
+      "@testing-library/jest-dom"
+    ]
+  },
+  "include": [
+    "./**/*.ts",
+    "./**/*.vue",
+    "./@types/*"
+  ],
+  "exclude": [
+    "node_modules",
+    ".nuxt",
+    "dist"
+  ]
+}

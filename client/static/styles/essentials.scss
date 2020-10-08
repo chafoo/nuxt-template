@@ -1,0 +1,38 @@
+@import 'basics';
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+
+body {
+  @include text-default;
+  color: $color-neutrals-90;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+input, button, p, textarea {
+  @include text-default
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+.tab-outline {
+  outline:none;
+}

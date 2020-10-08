@@ -1,0 +1,106 @@
+@function rem-calc($size) {
+  $remSize: $size / 16;
+  @return #{$remSize}rem;
+}
+
+$font-family__tt-commons: 'TT Commons', Arial, 'Helvetica Neue', sans-serif;
+$font-family__lyon: 'Lyon', serif;
+$font-family__songti-sc: 'SongTi SC', 'SimSun', '宋体';
+
+
+$font__brandon: 'Brandon';
+@font-face {
+  font-family: $font__brandon;
+  font-display: fallback;
+  src: url('/font-types/brandon/regular.woff2') format('woff2'),
+  url('/font-types/brandon/regular.woff') format('woff'),
+  url('/font-types/brandon/regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: $font__brandon;
+  font-display: fallback;
+  src: url('/font-types/brandon/medium.woff2') format('woff2'),
+  url('/font-types/brandon/medium.woff') format('woff'),
+  url('/font-types/brandon/medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: $font__brandon;
+  font-display: fallback;
+  src: url('/font-types/brandon/hvd_fonts_-_brandontext-regularitalic-webfont.woff2') format('woff2'),
+  url('/font-types/brandon/hvd_fonts_-_brandontext-regularitalic-webfont.woff') format('woff'),
+  url('/font-types/brandon/hvd_fonts_-_brandontext-regularitalic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+$font__lyon: 'Lyon';
+@font-face {
+  font-family: $font__lyon;
+  font-display: fallback;
+  src:
+    url('/font-types/lyon/LyonText-Semibold-Web.woff2') format('woff2'),
+    url('/font-types/lyon/LyonText-Semibold-Web.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/**
+ * @license
+ * MyFonts Webfont Build ID 3798325, 2019-08-19T04:54:16-0400
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: TTCommons-DemiBold by TypeType
+ * URL: https://www.myfonts.com/font-types/type-type/tt-commons/demi-bold/
+ *
+ * Webfont: TTCommons-Medium by TypeType
+ * URL: https://www.myfonts.com/font-types/type-type/tt-commons/medium/
+ *
+ * Webfont: TTCommons-Regular by TypeType
+ * URL: https://www.myfonts.com/font-types/type-type/tt-commons/regular/
+ *
+ *
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3798325
+ * Licensed pageviews: Unlimited
+ * Webfonts copyright: Copyright (c) 2018-2019 by TypeType. Designers Ivan Gladkikh, Pavel Emelyanov. Technical designers Marina Khodak, Vika Usmanova, Nadyr Rakhimov, Antonina Zhulkova. All rights reserved.
+ *
+ * © 2019 MyFonts Inc
+*/
+
+$font__tt-commons: 'TT Commons';
+@font-face {
+  font-family: $font__tt-commons;
+  font-weight: bold;
+  font-display: swap;
+  src: url('/font-types/tt-commons/DemiBold.woff2') format('woff2'),
+  url('/font-types/tt-commons/DemiBold.woff') format('woff'),
+  url('/font-types/tt-commons/DemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: $font__tt-commons;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/font-types/tt-commons/Medium.woff2') format('woff2'),
+  url('/font-types/tt-commons/Medium.woff') format('woff'),
+  url('/font-types/tt-commons/Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: $font__tt-commons;
+  font-weight: normal;
+  font-display: swap;
+  src: url('/font-types/tt-commons/Regular.woff2') format('woff2'),
+  url('/font-types/tt-commons/Regular.woff') format('woff'),
+  url('/font-types/tt-commons/Regular.ttf') format('truetype');
+}
+
+
