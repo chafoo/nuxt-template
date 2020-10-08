@@ -1,6 +1,4 @@
-# ks-web-app
-
-> Kitchenstories
+# Nuxt ready to use template
 
 ## Build Setup
 
@@ -23,9 +21,4 @@ $ npm run generate
 
 ```bash
 npm run test 
-```
-
-## Build and run Dockercontainer
-
-```bash
 ```
